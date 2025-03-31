@@ -47,7 +47,7 @@ npx prisma studio
 node --loader ts-node/esm app.ts
 ```
 
-The API will be running on `http://localhost:5000`
+The API will be running on `http://localhost:3000`
 
 ## 📂 Project Structure
 ```
@@ -56,9 +56,8 @@ The API will be running on `http://localhost:5000`
 ├── routes        # API routes
 ├── prisma        # Prisma client setup
 |── DB
-│   ├── utils         # Utility functions
-│   ├── app.ts        # Express app setup
-│   ├── server.ts     # Entry point
+├── Route         # Utility functions
+├── app.ts        # Express app setup
 │── prisma
 │   ├── schema.prisma # Prisma schema
 │── .env              # Environment variables
@@ -70,24 +69,15 @@ The API will be running on `http://localhost:5000`
 ### 🚀 Authentication
 | Method | Endpoint       | Description          |
 |--------|--------------|----------------------|
-| POST   | /auth/signup | Register a user     |
-| POST   | /auth/login  | Login a user        |
+| POST   | /login  | Login a user        |
 
-### 📄 Users
-| Method | Endpoint     | Description       |
-|--------|-------------|-------------------|
-| GET    | /users      | Get all users     |
-| GET    | /users/:id  | Get user by ID    |
-| PUT    | /users/:id  | Update user       |
-| DELETE | /users/:id  | Delete user       |
 
 ## 🔐 Authentication & Security
-- **JWT-based authentication** for secure API access.
 - **Input validation** with Zod to ensure data integrity.
 - **CORS enabled** for cross-origin requests.
 
 ## 🛠️ Development & Debugging
-- Use `yarn dev` to run the server in watch mode.
+- Use `npm dev` to run the server in watch mode.
 - Use `npx prisma studio` to inspect the database.
 - Debug using `console.log()` or VS Code debugger.
 
