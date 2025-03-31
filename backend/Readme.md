@@ -1,0 +1,109 @@
+# Backend API - Node.js, Express, TypeScript, Prisma, PostgreSQL
+
+## 🚀 Overview
+This is the backend for a full-stack application built using **Node.js**, **Express**, **TypeScript**, **Prisma ORM**, and **PostgreSQL**. It provides a RESTful API for Login Authentication and Error State Management.
+
+## 🛠️ Tech Stack
+- **Node.js** - Runtime environment
+- **Express** - Web framework
+- **TypeScript** - Typed JavaScript for better maintainability
+- **Prisma ORM** - Database management
+- **PostgreSQL** - Relational database
+
+## 📦 Installation
+
+### 1️⃣ Clone the repository
+```sh
+git clone <repo-url>
+cd <repo-folder>
+```
+
+### 2️⃣ Install dependencies
+```sh
+yarn install
+# or
+npm install
+```
+
+### 3️⃣ Set up environment variables
+Create a `.env` file in the root directory and add:
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/db_name
+PORT=5000
+JWT_SECRET=your_jwt_secret
+```
+
+### 4️⃣ Migrate the database
+```sh
+npx prisma migrate dev --name init
+```
+
+### 5️⃣ Start the server
+```sh
+yarn dev
+# or
+npm run dev
+```
+
+The API will be running on `http://localhost:5000`
+
+## 📂 Project Structure
+```
+/backend
+│── src
+│   ├── controllers   # API logic
+│   ├── routes        # API routes
+│   ├── middleware    # Middleware functions
+│   ├── services      # Business logic
+│   ├── prisma        # Prisma client setup
+│   ├── utils         # Utility functions
+│   ├── app.ts        # Express app setup
+│   ├── server.ts     # Entry point
+│── prisma
+│   ├── schema.prisma # Prisma schema
+│── .env              # Environment variables
+│── package.json      # Dependencies & scripts
+│── tsconfig.json     # TypeScript config
+```
+
+## 🛠️ API Endpoints
+### 🚀 Authentication
+| Method | Endpoint       | Description          |
+|--------|--------------|----------------------|
+| POST   | /auth/signup | Register a user     |
+| POST   | /auth/login  | Login a user        |
+
+### 📄 Users
+| Method | Endpoint     | Description       |
+|--------|-------------|-------------------|
+| GET    | /users      | Get all users     |
+| GET    | /users/:id  | Get user by ID    |
+| PUT    | /users/:id  | Update user       |
+| DELETE | /users/:id  | Delete user       |
+
+## 🔐 Authentication & Security
+- **JWT-based authentication** for secure API access.
+- **Input validation** with Zod to ensure data integrity.
+- **CORS enabled** for cross-origin requests.
+
+## 🛠️ Development & Debugging
+- Use `yarn dev` to run the server in watch mode.
+- Use `npx prisma studio` to inspect the database.
+- Debug using `console.log()` or VS Code debugger.
+
+## 🛠️ Useful Commands
+```sh
+npx prisma generate   # Generate Prisma client
+npx prisma studio     # Open Prisma Studio
+npx prisma migrate dev --name init  # Apply migrations
+```
+
+## 📌 Future Enhancements
+- Implement role-based access control (RBAC)
+- Add unit tests with Jest
+- Deploy using Docker & CI/CD
+
+---
+
+💡 **Contributions are welcome!** Open an issue or submit a pull request.
+
