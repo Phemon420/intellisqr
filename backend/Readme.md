@@ -14,8 +14,8 @@ This is the backend for a full-stack application built using **Node.js**, **Expr
 
 ### 1️⃣ Clone the repository
 ```sh
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/Phemon420/intellisqr.git
+cd intellisqr
 ```
 
 ### 2️⃣ Install dependencies
@@ -29,20 +29,22 @@ npm install
 Create a `.env` file in the root directory and add:
 ```env
 DATABASE_URL=postgresql://user:password@localhost:5432/db_name
-PORT=5000
-JWT_SECRET=your_jwt_secret
+PORT=3000
 ```
 
 ### 4️⃣ Migrate the database
 ```sh
-npx prisma migrate dev --name init
+npx prisma migrate dev --user init
 ```
 
-### 5️⃣ Start the server
+### 5️⃣ Start the database connection
 ```sh
-yarn dev
-# or
-npm run dev
+npx prisma studio
+```
+
+### 6️⃣ Start the server
+```sh
+node --loader ts-node/esm app.ts
 ```
 
 The API will be running on `http://localhost:5000`
@@ -50,12 +52,10 @@ The API will be running on `http://localhost:5000`
 ## 📂 Project Structure
 ```
 /backend
-│── src
-│   ├── controllers   # API logic
-│   ├── routes        # API routes
-│   ├── middleware    # Middleware functions
-│   ├── services      # Business logic
-│   ├── prisma        # Prisma client setup
+├── controllers   # API logic
+├── routes        # API routes
+├── prisma        # Prisma client setup
+|── DB
 │   ├── utils         # Utility functions
 │   ├── app.ts        # Express app setup
 │   ├── server.ts     # Entry point
