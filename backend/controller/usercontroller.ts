@@ -27,7 +27,7 @@ const userController = {
       if (!user) {
         return res.status(400).json({
           success: false,
-          error: "User not found",
+          error: "This user does not exists",
         });
       }
 
@@ -35,7 +35,7 @@ const userController = {
       if (user.password !== password) {
         return res.status(401).json({
           success: false,
-          error: "Invalid credentials",
+          error: "Username or password is wrong",
         });
       }
 
@@ -61,7 +61,16 @@ const userController = {
         error: "An unexpected error occurred during login",
       });
     }
-  }
+  },
+
+  register: async (req: Request, res: Response) => {
+    const { email, password } = req.body;
+    // const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await prisma.user.create({
+      data: { email, password },
+    });
+    res.json(newUser);
+  },
   
 };
 
